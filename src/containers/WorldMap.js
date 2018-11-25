@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactMapboxGl, { Layer, Marker } from "react-mapbox-gl";
 import { EpisodeTag } from '../components/EpisodeTag';
-// require('dotenv').config();
 class WorldMap extends Component {
 
     state = {
@@ -18,8 +17,8 @@ class WorldMap extends Component {
         <Map
           style={"mapbox://styles/kristenleach/cjowhw8p5419f2srpcpfhmp5s"}
           containerStyle={{
-            height: "100%",
-            width: "100%",
+            height: "100vh",
+            width: "100vw",
           }}>
         </Map>
         ): null
