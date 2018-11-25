@@ -9,10 +9,11 @@
     "react-dom": "^16.6.3",
     "react-mapbox-gl": "^4.0.2",
     "react-scripts": "2.1.1",
-    "react-simple-maps": "^0.12.1"
+    "react-simple-maps": "^0.12.1",
+    "semantic-ui-react": "^0.83.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "MAPBOX=pk.eyJ1Ijoia3Jpc3RlbmxlYWNoIiwiYSI6ImNqb3hoODkwajI0cjYzeG1sNW16YnJ3cGwifQ.n-SZePPKdW2xYrK9fwY8fw react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
