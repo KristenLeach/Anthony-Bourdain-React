@@ -5,7 +5,17 @@ import { EpisodeTag } from '../components/EpisodeTag';
 class WorldMap extends Component {
 
     state = {
-        Map: null
+        Map: null,
+        Episodes: []
+    }
+
+    componentWillMount(){
+        return fetch("Node API Link here")
+        .then(response => response.json())
+        .then(data => this.setState({
+            Episodes: data
+        }))
+
     }
 
     componentDidMount(){
