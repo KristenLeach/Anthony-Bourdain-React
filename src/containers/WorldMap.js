@@ -9,6 +9,12 @@ class WorldMap extends Component {
         zoom: [1.09]
     }
 
+    componentDidMount(){
+        fetch('http://localhost:3000/')
+        .then(response => response.json())
+        .then(data => this.setState({ Episodes: data.episodes }));
+    }
+
     render(){
     
         const Map = ReactMapboxGl({
