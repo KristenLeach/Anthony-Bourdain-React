@@ -4,13 +4,15 @@ import { EpisodeTag } from '../components/EpisodeTag';
 class WorldMap extends Component {
 
     state = {
-        Episodes: []
+        Episodes: [],
+        center: [8.975918, 4.184438],
+        zoom: [1.09]
     }
 
     render(){
     
         const Map = ReactMapboxGl({
-            accessToken: process.env.MAPBOX
+            accessToken: process.env.MAPBOX,
           });
 
         return Map? (
@@ -19,6 +21,8 @@ class WorldMap extends Component {
           containerStyle={{
             height: "100vh",
             width: "100vw",
+            center: this.state.center,
+            zoom: this.state.zoom
           }}>
         </Map>
         ): null
