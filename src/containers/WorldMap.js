@@ -5,11 +5,12 @@ class WorldMap extends Component {
 
     state = {
         Episodes: [],
+        center: [29.370660, 12.125000],
+        zoom: [1.19],
         viewport: {
             height: "100vh",
             width: "100vw",
-            center: [29.370660, 12.125000],
-            zoom: [1.21]
+            
         }
     }
 
@@ -21,7 +22,7 @@ class WorldMap extends Component {
     }
 
     render(){
-     
+            const { center, zoom } = this.state
             const Map = ReactMapboxGl({
                 accessToken: process.env.MAPBOX
               });
@@ -32,7 +33,7 @@ class WorldMap extends Component {
              containerStyle={{
                height: "100vh",
                width: "100vw",
-             }}>
+             }} center={center} zoom={zoom}>
               </Map>
         ): null
     }
