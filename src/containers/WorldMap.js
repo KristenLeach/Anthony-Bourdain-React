@@ -18,11 +18,11 @@ class WorldMap extends Component {
         fetch('http://localhost:3000/')
         .then(response => response.json())
         .then(data => this.setState({ Episodes: data.episodes }));
-        console.log(this.state)
     }
 
     render(){
-            const { center, zoom } = this.state
+            const { center, zoom, Episodes } = this.state
+            console.log(Episodes)
             const Map = ReactMapboxGl({
                 accessToken: process.env.MAPBOX,
                 // dragRotate: false,

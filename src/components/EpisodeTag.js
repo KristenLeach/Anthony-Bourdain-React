@@ -5,8 +5,9 @@ class EpisodeTag extends Component {
 
     render(){
         return (
-            <div style={{ backgroundColor: 'red', borderRadius: 500, width: 15, height: 15 }}>
-                <Label>
+            <div>
+                <Label as= "a" basic pointing>
+                this.props.city
                 </Label>
             </div>
         )
