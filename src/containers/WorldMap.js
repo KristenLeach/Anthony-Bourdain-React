@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ReactMapboxGl from "react-mapbox-gl";
-import { EpisodeTag } from '../components/EpisodeTag';
+import ReactMapboxGl, { Marker } from "react-mapbox-gl";
+import EpisodeTag from '../components/EpisodeTag';
 class WorldMap extends Component {
 
     state = {
@@ -24,16 +24,24 @@ class WorldMap extends Component {
     render(){
             const { center, zoom } = this.state
             const Map = ReactMapboxGl({
-                accessToken: process.env.MAPBOX
+                accessToken: process.env.MAPBOX,
+                // dragRotate: false,
+                dragPan:false,
               });
     
             return Map? (
            <Map
-             style={"mapbox://styles/kristenleach/cjowhw8p5419f2srpcpfhmp5s"}
+             style="mapbox://styles/kristenleach/cjowhw8p5419f2srpcpfhmp5s"
              containerStyle={{
                height: "100vh",
                width: "100vw",
              }} center={center} zoom={zoom}>
+                <Marker
+                    coordinates={[-0.2416815, 51.5285582]}
+                    anchor="bottom">
+                    <EpisodeTag/>
+                </Marker>
+
               </Map>
         ): null
     }
