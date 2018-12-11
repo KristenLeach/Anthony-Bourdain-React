@@ -3,11 +3,11 @@ import { Label } from 'semantic-ui-react'
 
 class EpisodeTag extends Component {
 
-    render(){
+    render(props){
         return (
             <div>
                 <Label as= "a" basic pointing>
-                this.props.city
+                {this.props.episode}
                 </Label>
             </div>
         )

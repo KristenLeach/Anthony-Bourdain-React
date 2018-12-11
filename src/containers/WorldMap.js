@@ -36,12 +36,13 @@ class WorldMap extends Component {
                height: "100vh",
                width: "100vw",
              }} center={center} zoom={zoom}>
+            {this.state.Episodes.map((episode) => (
                 <Marker
-                    coordinates={[-0.2416815, 51.5285582]}
-                    anchor="bottom">
-                    <EpisodeTag/>
+                  coordinates={[episode.latLong.lng, episode.latLong.lat]}
+                  anchor="bottom"> 
+                <EpisodeTag episode={episode.city[0].text} />
                 </Marker>
-
+            ))}
               </Map>
         ): null
     }
