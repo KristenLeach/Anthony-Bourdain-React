@@ -3,7 +3,6 @@ import { Label } from 'semantic-ui-react'
 
 class EpisodeTag extends Component {
 
-
     render(){
         return (
             <div>
