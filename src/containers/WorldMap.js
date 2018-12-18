@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import ReactMapboxGl, { Marker, Layer, Feature } from "react-mapbox-gl";
-import EpisodeTag from '../components/EpisodeTag';
+import EpisodeTag from "../components/EpisodeTag";
 class WorldMap extends Component {
 
     state = {
@@ -15,7 +15,7 @@ class WorldMap extends Component {
     }
 
     componentDidMount(){
-        fetch('http://localhost:3000/')
+        fetch("http://localhost:3000/")
         .then(response => response.json())
         .then(data => this.setState({ Episodes: data.episodes }));
     }
@@ -26,7 +26,7 @@ class WorldMap extends Component {
             const Map = ReactMapboxGl({
                 accessToken: process.env.MAPBOX,
                 // dragRotate: false,
-                dragPan:false,
+                dragPan:true,
               });
 
               const markers = this.state.Episodes.map((episode) => (
@@ -42,12 +42,11 @@ class WorldMap extends Component {
              }} center={center} zoom={zoom}>
             {this.state.Episodes.map((episode) => (
                  <Layer
-                 type="symbol"
-                 id="marker"
-                 layout={{
-                   'icon-allow-overlap': true,
-                   'icon-image': 'marker-15.svg',
-                   'icon-size': true,
+                 type="circle" id="marker" paint={{
+                    'circle-color': "#ff5200",
+                    'circle-stroke-width': 1,
+                    'circle-stroke-color': '#fff',
+                    'circle-stroke-opacity': 1
                  }}>
                   {markers}
                 </Layer>
