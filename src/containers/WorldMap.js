@@ -30,7 +30,10 @@ class WorldMap extends Component {
               });
 
               const markers = this.state.Episodes.map((episode) => (
-                  <Feature coordinates={[episode.latLong.lng, episode.latLong.lat]}/>
+                  <Feature 
+                    coordinates={[episode.latLong.lng, episode.latLong.lat]}
+                    properties={{episodeName: episode.city}}
+                  />
               ))
     
             return Map? (
