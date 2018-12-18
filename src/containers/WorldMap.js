@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactMapboxGl, { Marker, Layer, Feature } from "react-mapbox-gl";
+import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import EpisodeTag from "../components/EpisodeTag";
 class WorldMap extends Component {
 
@@ -18,6 +18,10 @@ class WorldMap extends Component {
         fetch("http://localhost:3000/")
         .then(response => response.json())
         .then(data => this.setState({ Episodes: data.episodes }));
+    }
+
+    onEnterFeature = () => {
+        
     }
 
     render(){
@@ -43,17 +47,18 @@ class WorldMap extends Component {
                height: "100vh",
                width: "100vw",
              }} center={center} zoom={zoom}>
-            {this.state.Episodes.map((episode) => (
-                 <Layer
-                 type="circle" id="marker" paint={{
-                    'circle-color': "#ff5200",
-                    'circle-stroke-width': 1,
-                    'circle-stroke-color': '#fff',
-                    'circle-stroke-opacity': 1
-                 }}>
-                  {markers}
-                </Layer>
-            ))}
+
+            <Layer
+              type="circle" id="marker" paint={{
+                'circle-color': "#ff5200",
+                'circle-stroke-width': 1,
+                'circle-stroke-color': '#fff',
+                'circle-stroke-opacity': 1
+            }}>
+                {markers}
+            </Layer>
+
+            )}
               </Map>
         ): null
     }
