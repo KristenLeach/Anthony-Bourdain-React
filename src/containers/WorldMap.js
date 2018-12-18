@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactMapboxGl, { Marker } from "react-mapbox-gl";
+import ReactMapboxGl, { Marker, Layer, Feature } from "react-mapbox-gl";
 import EpisodeTag from '../components/EpisodeTag';
 class WorldMap extends Component {
 
@@ -28,6 +28,10 @@ class WorldMap extends Component {
                 // dragRotate: false,
                 dragPan:false,
               });
+
+              const markers = this.state.Episodes.map((episode) => (
+                  <Feature coordinates={[episode.latLong.lng, episode.latLong.lat]}/>
+              ))
     
             return Map? (
            <Map
@@ -37,11 +41,16 @@ class WorldMap extends Component {
                width: "100vw",
              }} center={center} zoom={zoom}>
             {this.state.Episodes.map((episode) => (
-                <Marker
-                  coordinates={[episode.latLong.lng, episode.latLong.lat]}
-                  anchor="bottom"> 
-                <EpisodeTag episode={episode.city[0].text} />
-                </Marker>
+                 <Layer
+                 type="symbol"
+                 id="marker"
+                 layout={{
+                   'icon-allow-overlap': true,
+                   'icon-image': 'marker-15.svg',
+                   'icon-size': true,
+                 }}>
+                  {markers}
+                </Layer>
             ))}
               </Map>
         ): null
